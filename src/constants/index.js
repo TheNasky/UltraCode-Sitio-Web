@@ -91,17 +91,17 @@ export const stats = [
    {
       id: "stats-1",
       title: "Happy Clients",
-      value: "100+",
+      value: "30+",
    },
    {
       id: "stats-2",
       title: "Finished Projects",
-      value: "120+",
+      value: "50+",
    },
    {
       id: "stats-3",
       title: "Active Members",
-      value: "20+",
+      value: "10+",
    },
 ];
 

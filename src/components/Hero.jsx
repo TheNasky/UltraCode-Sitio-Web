@@ -1,6 +1,5 @@
 import styles from "../style";
-import { discount, robot, ultraCodeLogo } from "../assets";
-import GetStarted from "./GetStarted";
+import { discount, ultraCodeLogo } from "../assets";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
@@ -18,13 +17,13 @@ const Hero = () => {
                </div>
             </div>
 
-            <div className="flex flex-col justify-between items-center w-full md:w-3/4">
-               <h1 className="flex-1 text-center font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[75px] leading-[75px]">
+            <div className="flex flex-col justify-between md:items-start items-center w-full ">
+               <h1 className="flex-1 text-center md:text-start font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[75px] leading-[75px]">
                   We Make <br className="sm:block" />{" "}
                   <span className="text-gradient">Your Apps</span>{" "}
                </h1>
 
-               <h1 className="font-poppins font-semibold flex justify-center ss:text-[68px] text-[52px] text-white ss:leading-[75px] leading-[75px] w-full">
+               <h1 className="font-poppins  font-semibold flex justify-center md:justify-start ss:text-[68px] text-[52px] text-white ss:leading-[75px] leading-[75px] w-full">
                   <TypeAnimation
                      sequence={[
                         "Powerful",
@@ -62,10 +61,6 @@ const Hero = () => {
             <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
             <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
             {/* gradient end */}
-         </div>
-
-         <div className={`ss:hidden ${styles.flexCenter}`}>
-            <GetStarted />
          </div>
       </section>
    );

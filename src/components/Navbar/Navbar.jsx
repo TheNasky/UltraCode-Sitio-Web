@@ -2,10 +2,12 @@ import NavLink from "./Navlink";
 import { useState } from "react";
 import NavMobile from "./NavMobile";
 import { useEffect } from "react";
+import { UCLogo } from "../../assets/index.js";
+
 
 const navLinks = [
-   { title: "About", path: "#about", offset: -55 },
-   { title: "Contact", path: "#contact", offset: -130 },
+   { title: "About", path: "/about", offset: -55 },
+   { title: "Contact", path: "/contact", offset: -130 },
    { title: "Work with Us", path: "/work-with-us", offset: -130 },
 ];
 
@@ -43,14 +45,21 @@ export default function Navbar() {
    return (
       <nav
          className={`fixed top-0 left-0 right-0 z-50 lg:mb-4 pb-4 shadow-sticky ${
-            scrolling ? "bg-[#424865] bg-opacity-40  backdrop-blur-sm" : "bg-transparent"
+            scrolling ? "bg-[#424865] bg-opacity-40  backdrop-blur-sm" : "md:bg-transparent bg-[#00040F] bg-opacity-100"
          }`}
       >
          <div className="flex items-center justify-between p-4 pb-0 font-medium">
             <a href={"/"} className="ml-8 text-2xl md:text-3xl text-white font-semibold">
                <p className="ml-4 flex items-center text-2xl md:text-3xl 2xl:text-4xl">
+                  <img
+                     src={UCLogo}
+                     
+                     alt="billing"
+                     className="w-9 h-9 relative z-[5]"
+                  />
                   <span className="text-transparent bg-[#043D7A] bg-clip-text "></span>
-                  <span className=" text-white bg-clip-text">UltraCode</span>
+                  <span className=" text-white bg-clip-text" style={{fontFamily: 'Sometype Mono, monospace'}}>UltraCode</span>
+                  
                </p>
             </a>
             <div className="mobile-menu block md:hidden">

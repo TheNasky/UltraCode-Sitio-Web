@@ -28,7 +28,8 @@ import bulb from "./bulb.svg";
 import lock from "./lock.svg";
 import circuit from "./circuit.svg";
 import tech from "./tech.svg";
-
+import UCLogo from "./UCLogo.webp"
+import UCLogo2 from "./UCLogo2.webp"
 export {
   airbnb,
   bill,
@@ -56,6 +57,8 @@ export {
   people02,
   people03,
   ultraCodeLogo,
+  UCLogo,
+  UCLogo2,
   bulb,
   lock,
   circuit,

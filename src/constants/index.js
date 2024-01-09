@@ -65,24 +65,23 @@ export const feedback = [
    {
       id: "feedback-1",
       content:
-         "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-      name: "Herman Jensen",
-      title: "Founder & Leader",
+         "I was impressed with the Attention to detail and the look of my new app.",
+      name: "David Chang",
+      title: "Red Lantern Cafe",
       img: people01,
    },
    {
       id: "feedback-2",
-      content: "Money makes your life easier. If you're lucky to have it, you're lucky.",
-      name: "Steve Mark",
-      title: "Founder & Leader",
+      content: "My site's performance is amazing and i can't believe how quickly it was finished.",
+      name: "Hernan López",
+      title: "CineFlick",
       img: people02,
    },
    {
       id: "feedback-3",
-      content:
-         "It is usually people in the money business, finance, and international trade that are really rich.",
-      name: "Kenn Gallagher",
-      title: "Founder & Leader",
+      content: "UltraCode developed an impressive app for seamless shopping. Looking forward to future collaborations!",
+      name: "Sarah Campbell",
+      title: "Greenbite Delights",
       img: people03,
    },
 ];
@@ -190,7 +189,7 @@ export const socialMedia = [
    {
       id: "social-media-4",
       icon: linkedin,
-      link: "https://www.linkedin.com/",
+      link: "https://ar.linkedin.com/company/ultracodear?trk=similar-pages",
    },
 ];
 

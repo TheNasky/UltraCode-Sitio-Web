@@ -20,9 +20,9 @@ import facebook from "./facebook.svg";
 import instagram from "./instagram.svg";
 import linkedin from "./linkedin.svg";
 import twitter from "./twitter.svg";
-import people01 from "./people01.png";
-import people02 from "./people02.png";
-import people03 from "./people03.png";
+import people01 from "./people01.webp";
+import people02 from "./people02.webp";
+import people03 from "./people03.webp";
 import ultraCodeLogo from "./ultraCodeLogo.webp";
 import bulb from "./bulb.svg";
 import lock from "./lock.svg";
@@ -30,6 +30,8 @@ import circuit from "./circuit.svg";
 import tech from "./tech.svg";
 import UCLogo from "./UCLogo.webp"
 import UCLogo2 from "./UCLogo2.webp"
+import projects1 from "./projects1.webp"
+import projects2 from "./projects2.webp"
 export {
   airbnb,
   bill,
@@ -63,4 +65,6 @@ export {
   lock,
   circuit,
   tech,
+  projects1,
+  projects2,
 };

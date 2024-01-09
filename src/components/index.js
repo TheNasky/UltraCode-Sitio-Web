@@ -1,6 +1,6 @@
 import Navbar from "./Navbar/Navbar.jsx";
-import Billing from "./Billing";
-import CardDeal from "./CardDeal";
+import Designs from "./Designs.jsx";
+import Technologies from "./Technologies.jsx";
 import Business from "./Business";
 import Clients from "./Clients";
 import CTA from "./CTA";
@@ -14,8 +14,8 @@ import WorkForUs from "./Work-For-Us"
 
 export {
   Navbar,
-  Billing,
-  CardDeal,
+  Designs,
+  Technologies,
   Business,
   Clients,
   CTA,

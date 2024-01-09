@@ -1,10 +1,15 @@
 import styles from "../style";
 import { discount, ultraCodeLogo } from "../assets";
 import { TypeAnimation } from "react-type-animation";
+import Button from "./Button.jsx";
+import Button2 from "./Button2.jsx";
 
 const Hero = () => {
    return (
-      <section id="home" className={`flex md:flex-row flex-col  py-24 lg:pt-8 xl:pt-16 sm:pt-20 `}>
+      <section
+         id="home"
+         className={`flex md:flex-row flex-col  py-24 lg:pt-8 xl:pt-16 sm:pt-20 `}
+      >
          <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
             <div className="flex self-center md:self-start">
                <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
@@ -42,20 +47,24 @@ const Hero = () => {
                </h1>
             </div>
             <div className="flex self-center md:self-start">
-               <p className={`${styles.paragraph} max-w-[470px] sm:px-0 mt-5`}>
-                  Empowering every business, regardless of size, with the chance to innovate
-                  and make their ideas come to life. That's our mission.
+               <p className={`${styles.paragraph} max-w-[470px] sm:px-0 mt-5 hidden lg:block`}>
+                  Unleashing Innovation, One Line at a Time
                </p>
+            </div>
+            <div className="mt-4  hidden lg:block">
+               <Button2 styles={`mt-10 self-center sm:self-start`} />
             </div>
          </div>
 
-         <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
+         <div className={`flex-1 flex-col ${styles.flexCenter} md:my-0 my-10 relative`}>
             <img
                src={ultraCodeLogo}
                alt="billing"
                className="w-[100%] h-[100%] relative z-[5]"
             />
-
+            <div className="mt-4 lg:hidden">
+               <Button2 styles={`mt-10 self-center sm:self-start`} />
+            </div>
             {/* gradient start */}
             <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
             <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />

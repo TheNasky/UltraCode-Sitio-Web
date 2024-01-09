@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -108,3 +108,28 @@
    background: rgba(255, 255, 255, 0.6);
    filter: blur(750px);
 }
+
+.moonSVG {
+   fill: #ffffff; /* Set the initial color of the moon */
+   transition: fill 0.3s ease; /* Add a smooth transition for color change */
+}
+
+.moonSVG:hover {
+   fill: red; /* Set the color you want when hovering */
+}
+
+/*
+::-webkit-scrollbar {
+   width: 12px; 
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: #4f4f4f; 
+   @apply bg-gradient-to-br from-cyan-500 via-blue-500 to-[#05498D] hover:from-[#3884bb] hover:via-blue-400 hover:to-[#1e4f80] transition duration-300 ease-out;
+   border-radius: 6px; 
+}
+
+::-webkit-scrollbar-track {
+   background-color: #050814; 
+}
+*/

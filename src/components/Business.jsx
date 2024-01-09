@@ -26,8 +26,8 @@ const Business = () => (
    <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
          <h2 className={`text-center sm:text-start ${styles.heading2}`}>
-            You get the ideas, <br className="sm:block hidden" /> we make them
-            <br className="md:block hidden" />a reality
+            You get the ideas, <br className="sm:block hidden" /> we make them{" "}
+            <br className="md:block hidden" /> a reality
          </h2>
          <p className={`${styles.paragraph} max-w-[470px] mt-5 mb-4`}>
             Our team of expert developers is ready to turn your vision into reality. Whether

@@ -1,10 +1,15 @@
-import { apple, bill, google } from "../assets";
+import { apple, projects2, google } from "../assets";
 import styles, { layout } from "../style";
+import Button from "./Button.jsx";
 
-const Billing = () => (
+const Designs = () => (
    <section id="product" className={layout.sectionReverse}>
       <div className={layout.sectionImgReverse}>
-         <img src={bill} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+         <img
+            src={projects2}
+            alt="billing"
+            className="w-[80%] h-[80%] relative z-[5] rounded-full"
+         />
 
          {/* gradient start */}
          <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
@@ -16,26 +21,15 @@ const Billing = () => (
          <h2 className={styles.heading2}>
             Creative Designs <br className="sm:block hidden" /> for Creative Ideas
          </h2>
-         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+         <p className={`${styles.paragraph} max-w-[470px] mt-5 mb-4`}>
             You envision it, we design it. We provide an infinite variety of custom designs and
             styles to fit <span className={`${styles.paragraph} text-gradient`}>all </span>{" "}
             your needs
          </p>
 
-         <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
-            <img
-               src={apple}
-               alt="google_play"
-               className="w-[128.86px] h-[42.05px] object-contain mr-5 cursor-pointer"
-            />
-            <img
-               src={google}
-               alt="google_play"
-               className="w-[144.17px] h-[43.08px] object-contain cursor-pointer"
-            />
-         </div>
+         <Button styles={`mt-10 self-center sm:self-start`} />
       </div>
    </section>
 );
 
-export default Billing;
+export default Designs;

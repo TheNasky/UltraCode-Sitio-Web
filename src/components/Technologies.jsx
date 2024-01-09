@@ -17,7 +17,7 @@ const Technologies = () => (
       </div>
 
       <div className={layout.sectionImg}>
-         <img src={tech} alt="billing" className="w-[100%] h-[100%]" />
+         <img src={tech} alt="Technologies" className="w-[100%] h-[85%]" />
       </div>
    </section>
 );

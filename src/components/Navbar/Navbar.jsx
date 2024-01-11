@@ -112,7 +112,7 @@ export default function Navbar() {
                      {navLinks.map((link, index) => (
                         <li key={index}>
                            <NavLink
-                              onClick={() => scrollToSection(link.path, link.offset)}
+                              path={link.path}
                               title={link.title}
                            />
                         </li>
@@ -130,7 +130,7 @@ export default function Navbar() {
                ? navLinks.map((link, index) => (
                     <li key={index}>
                        <NavMobile
-                          onClick={() => scrollToSection(link.path, link.offset)}
+                          path={link.path}
                           title={link.title}
                        />
                     </li>

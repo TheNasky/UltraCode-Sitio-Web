@@ -10,6 +10,7 @@ import {
    Stats,
    Testimonials,
    Hero,
+   ContactForm,
 } from "./components";
 import ScrollUpButton from "./components/ScrollUpButton.jsx";
 
@@ -37,6 +38,7 @@ const App = () => (
             <Technologies />
             <Testimonials />
             <CTA />
+
             <Footer />
          </div>
       </div>

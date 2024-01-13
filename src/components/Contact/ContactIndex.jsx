@@ -1,43 +1,25 @@
-import styles from "./style";
-import {
-   Designs,
-   Business,
-   Technologies,
-   Clients,
-   CTA,
-   Footer,
-   Navbar,
-   Stats,
-   Testimonials,
-   Hero,
-} from "./components";
-import ScrollUpButton from "./components/ScrollUpButton.jsx";
+import styles from "../../style.js";
+import { Footer, Navbar} from "../index.js";
+import Contact from "./Contact.jsx";
+import ScrollUpButton from "../ScrollUpButton.jsx";
 
 const App = () => (
    <div className="bg-primary w-full overflow-hidden">
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
          <div className={`${styles.boxWidth}`}>
             <Navbar />
-            
          </div>
       </div>
 
       <div className={`bg-primary ${styles.flexStart}`}>
          <div className={`${styles.boxWidth}`}>
-            <Hero />
+            <Contact/>
             <ScrollUpButton />
          </div>
       </div>
 
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
          <div className={`${styles.boxWidth}`}>
-            <Stats />
-            <Business />
-            <Designs />
-            <Technologies />
-            <Testimonials />
-            <CTA />
-
             <Footer />
          </div>
       </div>

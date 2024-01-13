@@ -8,10 +8,9 @@ import Stats from "./Stats";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
-import Contact from "./Contact.jsx";
 import About from "./About.jsx"
 import WorkForUs from "./Work-For-Us"
-import ContactForm from "./ContactForm.jsx";
+
 export {
   Navbar,
   Designs,
@@ -23,8 +22,6 @@ export {
   Footer,
   Testimonials,
   Hero,
-  Contact,
   About,
   WorkForUs,
-  ContactForm
 };

@@ -12,7 +12,7 @@ const Contact = () => {
 
             <div className="flex flex-col justify-between md:items-start items-center w-full mt-12 mb-12">
                <h1 className="flex-1 text-center md:text-start font-poppins font-semibold ss:text-[52px] text-[42px] text-white ss:leading-[75px] leading-[75px]">
-                  Let us know what we can{" "}
+                  Que onda{" "}
                   <span className="border-b-4 border-[#3A7DE8]">help you with</span>{" "}
                </h1>
             </div>

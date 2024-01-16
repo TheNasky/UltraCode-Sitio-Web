@@ -1,7 +1,6 @@
 import styles from "../style";
 import { discount, ultraCodeLogo } from "../assets";
 import { TypeAnimation } from "react-type-animation";
-import Button from "./Button.jsx";
 import Button2 from "./Button2.jsx";
 
 const Hero = () => {

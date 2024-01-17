@@ -1,6 +1,6 @@
 import styles from "../../style";
 
-const Contact = () => {
+const WorkWithUs = () => {
    const handleSubmit = async (e) => {
       e.preventDefault();
       const data = {
@@ -11,8 +11,7 @@ const Contact = () => {
          lastName: e.target.lastName.value,
          company: e.target.company.value,
          goals: e.target.goals.value,
-         country: e.target.country.value
-
+         country: e.target.country.value,
       };
       const JSONdata = JSON.stringify(data);
       const endpoint = "https://ultracode-mailing.onrender.com/api/mails/";
@@ -46,7 +45,7 @@ const Contact = () => {
             </div>
             <div className="flex self-center md:self-start">
                <div className="sm:flex flex-1 text-center md:text-start font-poppins font-semibold text-[15px] hidden text-white ss:leading-[75px] leading-[75px]">
-                  you can also contact us at{" "}
+                  you can also WorkWithUsus at{" "}
                   <a href="facebook.com" className="text-[#3A7DE8] pl-1">
                      UltraCodeHR@gmail.com
                   </a>
@@ -55,7 +54,10 @@ const Contact = () => {
          </div>
 
          <div className={`flex-1 flex-col ${styles.flexCenter} md:my-0 my-10 relative`}>
-            <form onSubmit={handleSubmit} className="w-full max-w-lg  z-10 bg-white p-10 rounded-xl">
+            <form
+               onSubmit={handleSubmit}
+               className="w-full max-w-lg  z-10 bg-white p-10 rounded-xl"
+            >
                <div className="flex flex-wrap -mx-3 mb-3">
                   <div className="w-full px-3 mb-3">
                      <label
@@ -74,18 +76,18 @@ const Contact = () => {
                   </div>
                </div>
 
-               <div className="flex flex-wrap -mx-3 mb-3">
-                  <div className="w-full px-3 mb-3">
+               <div class="flex flex-wrap -mx-3 mb-3">
+                  <div class="w-full px-3 mb-3">
                      <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-goals"
                      >
-                        Your Goals*
+                        tell us who you are*
                      </label>
                      <textarea
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-goals"
-                        placeholder="Describe your goals here..."
+                        placeholder="Introduce yourself here..."
                         name="goals"
                      ></textarea>
                   </div>
@@ -145,18 +147,21 @@ const Contact = () => {
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-company"
                      >
-                        Company
+                        Your Resume* (Todo)
                      </label>
                      <input
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-company"
                         type="text"
-                        placeholder="Your Company"
+                        placeholder="Your resume goes here"
                         name="company"
                      />
                   </div>
                </div>
-               <button type="submit" className="font-poppins font-medium text-[15px] mr-4 px-1 py-1 w-full md:w-full rounded-full bg-blue-gradient  text-white mt-3">
+               <button
+                  type="submit"
+                  className="font-poppins font-medium text-[15px] mr-4 px-1 py-1 w-full md:w-full rounded-full bg-blue-gradient  text-white mt-3"
+               >
                   <span className="transition ease-in-out delay-45 w-full block bg-[#121212] hover:bg-stone-700 rounded-full px-6 py-3 2xl:text-2xl 2xl:px-8 2xl:py-4">
                      Send
                   </span>
@@ -173,4 +178,4 @@ const Contact = () => {
    );
 };
 
-export default Contact;
+export default WorkWithUs;

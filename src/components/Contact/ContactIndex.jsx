@@ -3,7 +3,7 @@ import { Footer, Navbar} from "../index.js";
 import Contact from "./Contact.jsx";
 import ScrollUpButton from "../ScrollUpButton.jsx";
 
-const App = () => (
+const ContactIndex= () => (
    <div className="bg-primary w-full overflow-hidden">
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
          <div className={`${styles.boxWidth}`}>
@@ -26,4 +26,4 @@ const App = () => (
    </div>
 );
 
-export default App;
+export default ContactIndex;

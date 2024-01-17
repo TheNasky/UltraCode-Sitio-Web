@@ -1,9 +1,9 @@
 import styles from "../../style.js";
-import { Footer, Navbar} from "../index.js";
-import About from "./About.jsx";
+import { Footer, Navbar } from "../index.js";
+import WorkWithUs from "./WorkWithUs.jsx";
 import ScrollUpButton from "../ScrollUpButton.jsx";
 
-const AboutIndex = () => (
+const WorkWithUsIndex = () => (
    <div className="bg-primary w-full overflow-hidden">
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
          <div className={`${styles.boxWidth}`}>
@@ -13,7 +13,7 @@ const AboutIndex = () => (
 
       <div className={`bg-primary ${styles.flexStart}`}>
          <div className={`${styles.boxWidth}`}>
-            <About/>
+            <WorkWithUs />
             <ScrollUpButton />
          </div>
       </div>
@@ -26,4 +26,4 @@ const AboutIndex = () => (
    </div>
 );
 
-export default AboutIndex;
+export default WorkWithUsIndex;

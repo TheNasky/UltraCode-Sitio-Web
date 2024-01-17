@@ -3,8 +3,29 @@ import ButtonAbout from "../ButtonAbout";
 import aboutImage from "../../assets/aboutImg.svg";
 import peopleImage from "../../assets/people01.png";
 
-
 const About = () => {
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+      const data = {
+         sender: e.target.email.value,
+         message: `${e.target.email.value} wants to contact you`,
+      };
+      const JSONdata = JSON.stringify(data);
+      const endpoint = "https://ultracode-mailing.onrender.com/api/mails/";
+      const options = {
+         method: "POST",
+         headers: {
+            "Content-Type": "application/json",
+         },
+         body: JSONdata,
+      };
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
+
+      if (response.status === 200) {
+         console.log("Message sent.");
+      }
+   };
    return (
       <section
          id="home"
@@ -12,11 +33,14 @@ const About = () => {
       >
          <div className={`flex-1 ${styles.flexStart} flex-col px-10 py-20 `}>
             <section className="w-full max-w-3xl space-y-6 mb-16">
-               <h1 className="text-3xl lg:text-7xl font-bold text-center text-white">About Us</h1>
+               <h1 className="text-3xl lg:text-7xl font-bold text-center text-white">
+                  About Us
+               </h1>
                <p className="text-lg text-gray-600 dark:text-gray-400 ">
-                  Founded in 2023, our company has been committed to providing the best services to our customers. Our mission
-                  is to empower individuals and businesses by providing state-of-the-art solutions. We believe in the power of
-                  technology and its ability to simplify and enhance our lives.
+                  Founded in 2022, UltraCode has been committed to providing nothing but the
+                  best services to our customers. Our mission is to empower individuals and
+                  businesses by providing state-of-the-art solutions because we believe in the
+                  power of technology and its ability to simplify and enhance our lives.
                </p>
             </section>
             <section className="w-full max-w-3xl space-y-6 mt-10 md:mt-10 ">
@@ -35,9 +59,10 @@ const About = () => {
                         width="100"
                      />
                      <h3 className="text-xl font-semibold text-white">Valentin</h3>
-                     <p className="text-sm text-gray-500 ">CEO</p>
+                     <p className="text-sm text-gray-500 ">CEO and Team Leader</p>
                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Valentin is a visionary with 3 years of experience in the tech industry.
+                        Valentin is a visionary with 3 years of experience in the tech
+                        industry.
                      </p>
                   </div>
                   <div className="flex flex-col items-center space-y-2">
@@ -96,30 +121,49 @@ const About = () => {
                   </div>
                </div>
             </section>
-
-
          </div>
 
          <div className={`flex-1 flex-col ${styles.flexCenter} md:my-0 my-6 relative `}>
-            <img src={aboutImage} alt="img" className="absolute top-0 md:left-6 w-60 md:w-96 h-auto lg:w-96" />
+            <img
+               src={aboutImage}
+               alt="img"
+               className="absolute top-0 md:left-6 w-60 md:w-96 h-auto lg:w-96"
+            />
             <section className="w-full max-w-3xl mt-80 sm:mt- md:mt-32 xl:mt-44 space-y-6 px-5 z-10 ">
                <p className="text-lg text-gray-600 dark:text-gray-400">
-                  Interested in collaborating with us? We'd love to hear from you. Please reach out to us via the contact form
-                  or email us directly.
+                  Interested in collaborating with us? We'd love to hear from you. Please reach
+                  out to us via the contact form or email us directly.
                </p>
                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mb-5">Get in touch</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mb-5">
+                     Get in touch
+                  </h2>
                   <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mb-5">
-                     We'd love to hear from you. Send us a message and we'll get back to you as soon as possible.
+                     We'd love to hear from you. Send us a message and we'll get back to you as
+                     soon as possible.
                   </p>
                   <div className="w-full max-w-sm space-y-2">
-                     <form className="flex space-x-2 mb-5">
-                        <input className="max-w-lg flex-1 rounded-lg p-2" placeholder="Enter your email" type="email" />
-                        <button className="bg-white p-1 rounded-lg cursor-pointer" type="submit ">Send</button>
+                     <form onSubmit={handleSubmit} className="flex space-x-2 mb-5">
+                        <input
+                           name="email"
+                           className="max-w-lg flex-1 rounded-lg p-2"
+                           placeholder="Enter your email"
+                           type="email"
+                        />
+                        <button
+                           className="bg-white p-1 rounded-lg cursor-pointer"
+                           type="submit"
+                        >
+                           Send
+                        </button>
                      </form>
                      <p className="text-xs text-gray-500 dark:text-gray-400">
                         Or contact us at <br />
-                        <a className="underline underline-offset-2" href="UltraCodeHR@gmail.com">
+                        <a
+                           href={`mailto:UltraCodeHR@gmail.com`}
+                           target="_blank"
+                           className="text-[#3A7DE8] pl-1"
+                        >
                            UltraCodeHR@gmail.com
                         </a>
                      </p>

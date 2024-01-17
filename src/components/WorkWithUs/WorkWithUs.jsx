@@ -1,6 +1,6 @@
 import styles from "../../style";
 
-const Contact = () => {
+const WorkWithUs = () => {
    const handleSubmit = async (e) => {
       e.preventDefault();
       const data = {
@@ -39,18 +39,14 @@ const Contact = () => {
 
             <div className="flex flex-col justify-between md:items-start items-center w-full mt-12 mb-12">
                <h1 className="flex-1 text-center md:text-start font-poppins font-semibold ss:text-[52px] text-[42px] text-white ss:leading-[75px] leading-[75px]">
-                  Let us know what we can{" "}
-                  <span className="border-b-4 border-[#3A7DE8]">help you with</span>{" "}
+               Join our team! We are eager to {" "} 
+                  <span className="border-b-4 border-[#3A7DE8]">meet you</span>{" "}
                </h1>
             </div>
             <div className="flex self-center md:self-start">
                <div className="sm:flex flex-1 text-center md:text-start font-poppins font-semibold text-[15px] hidden text-white ss:leading-[75px] leading-[75px]">
-                  you can also contact us at{" "}
-                  <a
-                     href={`mailto:UltraCodeHR@gmail.com`}
-                     target="_blank"
-                     className="text-[#3A7DE8] pl-1"
-                  >
+                  you can also Contact us at{" "}
+                  <a href={`mailto:UltraCodeHR@gmail.com`} target="_blank"className="text-[#3A7DE8] pl-1">
                      UltraCodeHR@gmail.com
                   </a>
                </div>
@@ -80,18 +76,18 @@ const Contact = () => {
                   </div>
                </div>
 
-               <div className="flex flex-wrap -mx-3 mb-3">
-                  <div className="w-full px-3 mb-3">
+               <div class="flex flex-wrap -mx-3 mb-3">
+                  <div class="w-full px-3 mb-3">
                      <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-goals"
                      >
-                        Your Goals*
+                        tell us who you are*
                      </label>
                      <textarea
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-goals"
-                        placeholder="Describe your goals here..."
+                        placeholder="Introduce yourself here..."
                         name="goals"
                      ></textarea>
                   </div>
@@ -151,13 +147,13 @@ const Contact = () => {
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-company"
                      >
-                        Company
+                        Your Resume* (Todo)
                      </label>
                      <input
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-company"
                         type="text"
-                        placeholder="Your Company"
+                        placeholder="Your resume goes here"
                         name="company"
                      />
                   </div>
@@ -182,4 +178,4 @@ const Contact = () => {
    );
 };
 
-export default Contact;
+export default WorkWithUs;

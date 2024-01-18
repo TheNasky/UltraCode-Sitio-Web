@@ -5,37 +5,38 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 
 const About = () => {
-   const [email, setEmail] = useState('');
+   const [email, setEmail] = useState("");
 
    const handleSubmit = async (e) => {
       e.preventDefault();
-      const data = {
-         sender: e.target.email.value,
-         message: `${e.target.email.value} wants to contact you`,
-      };
-      const JSONdata = JSON.stringify(data);
+      const formData = new FormData();
+      formData.append("sender", e.target.email.value);
+      formData.append("subject", `New UltraCode Client`);
+      formData.append("message", `${e.target.email.value} wants to contact you`);
+
       const endpoint = "https://ultracode-mailing.vercel.app/api/mail";
       const options = {
          method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSONdata,
+         body: formData,
       };
-      const response = await fetch(endpoint, options);
-      const resData = await response.json();
-      if (response.status === 201) {
-         setEmail('');
-         Swal.fire({
-            icon: "success",
-            title: "Email Sent!",
-            showConfirmButton: false,
-            timer: 5000,
-            customClass: {
-               popup: "rounded-3xl", // Apply border-radius to the modal
-            },
-            iconColor: "#3A7DE8",
-         });
+      try {
+         const response = await fetch(endpoint, options);
+         const resData = await response.json();
+         if (response.status === 201) {
+            setEmail("");
+            Swal.fire({
+               icon: "success",
+               title: "Email Sent!",
+               showConfirmButton: false,
+               timer: 5000,
+               customClass: {
+                  popup: "rounded-3xl",
+               },
+               iconColor: "#3A7DE8",
+            });
+         }
+      } catch (error) {
+         console.error("Error sending email:", error);
       }
    };
    return (
@@ -165,7 +166,11 @@ const About = () => {
 
                   <div className="flex flex-col gap-2">
                      <div className="w-full px-4 py-2">
-                        <form onSubmit={handleSubmit} className="flex space-x-2 mb-5">
+                        <form
+                           onSubmit={handleSubmit}
+                           className="flex space-x-2 mb-5"
+                           encType="multipart/form-data"
+                        >
                            <input
                               name="email"
                               value={email}

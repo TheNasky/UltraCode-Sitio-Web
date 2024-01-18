@@ -14,9 +14,6 @@ const WorkWithUs = () => {
       formData.append("country", e.target.country.value);
       formData.append("file", e.target.resume.files[0]);
 
-      for (var key of formData.entries()) {
-         console.log(key[0] + ', ' + key[1]);
-     }
       const endpoint = "https://ultracode-mailing.vercel.app/api/mail";
       const options = {
          method: "POST",

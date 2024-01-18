@@ -1,32 +1,41 @@
 import styles from "../../style";
+import Swal from "sweetalert2";
 
 const WorkWithUs = () => {
    const handleSubmit = async (e) => {
       e.preventDefault();
-      const data = {
-         sender: e.target.email.value,
-         subject: `New UltraCode Client`,
-         message: `${e.target.email.value} has an offer`,
-         name: e.target.name.value,
-         lastName: e.target.lastName.value,
-         company: e.target.company.value,
-         goals: e.target.goals.value,
-         country: e.target.country.value,
-      };
-      const JSONdata = JSON.stringify(data);
-      const endpoint = "https://ultracode-mailing.onrender.com/api/mails/";
+      const formData = new FormData();
+      formData.append("sender", e.target.email.value);
+      formData.append("subject", "New person looking for work");
+      formData.append("message", `${e.target.email.value} wants to work at UltraCode`);
+      formData.append("name", e.target.name.value);
+      formData.append("lastName", e.target.lastName.value);
+      formData.append("goals", e.target.goals.value);
+      formData.append("country", e.target.country.value);
+      formData.append("file", e.target.resume.files[0]);
+
+      const endpoint = "https://ultracode-mailing.vercel.app/api/mail";
       const options = {
          method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSONdata,
+         body: formData,
       };
-      const response = await fetch(endpoint, options);
-      const resData = await response.json();
-
-      if (response.status === 200) {
-         console.log("Message sent.");
+      try {
+         const response = await fetch(endpoint, options);
+         const resData = await response.json();
+         if (response.status === 201) {
+            Swal.fire({
+               icon: "success",
+               title: "Email Sent!",
+               showConfirmButton: false,
+               timer: 5000,
+               customClass: {
+                  popup: "rounded-3xl",
+               },
+               iconColor: "#3A7DE8",
+            });
+         }
+      } catch (error) {
+         console.error("Error sending email:", error);
       }
    };
    return (
@@ -39,14 +48,18 @@ const WorkWithUs = () => {
 
             <div className="flex flex-col justify-between md:items-start items-center w-full mt-12 mb-12">
                <h1 className="flex-1 text-center md:text-start font-poppins font-semibold ss:text-[52px] text-[42px] text-white ss:leading-[75px] leading-[75px]">
-               Join our team! We are eager to {" "} 
+                  Join our team! We are eager to{" "}
                   <span className="border-b-4 border-[#3A7DE8]">meet you</span>{" "}
                </h1>
             </div>
             <div className="flex self-center md:self-start">
                <div className="sm:flex flex-1 text-center md:text-start font-poppins font-semibold text-[15px] hidden text-white ss:leading-[75px] leading-[75px]">
-                  you can also Contact us at{" "}
-                  <a href={`mailto:UltraCodeHR@gmail.com`} target="_blank"className="text-[#3A7DE8] pl-1">
+                  you can also contact us at{" "}
+                  <a
+                     href={`mailto:UltraCodeHR@gmail.com`}
+                     target="_blank"
+                     className="text-[#3A7DE8] pl-1"
+                  >
                      UltraCodeHR@gmail.com
                   </a>
                </div>
@@ -57,6 +70,7 @@ const WorkWithUs = () => {
             <form
                onSubmit={handleSubmit}
                className="w-full max-w-lg  z-10 bg-white p-10 rounded-xl"
+               encType="multipart/form-data"
             >
                <div className="flex flex-wrap -mx-3 mb-3">
                   <div className="w-full px-3 mb-3">
@@ -72,6 +86,7 @@ const WorkWithUs = () => {
                         type="email"
                         placeholder="UltraCodeHR@gmail.com"
                         name="email"
+                        required
                      />
                   </div>
                </div>
@@ -89,6 +104,7 @@ const WorkWithUs = () => {
                         id="grid-goals"
                         placeholder="Introduce yourself here..."
                         name="goals"
+                        required
                      ></textarea>
                   </div>
                </div>
@@ -107,6 +123,7 @@ const WorkWithUs = () => {
                         type="text"
                         placeholder="John"
                         name="name"
+                        required
                      />
                   </div>
                   <div className="w-full md:w-1/2 px-3">
@@ -122,6 +139,7 @@ const WorkWithUs = () => {
                         type="text"
                         placeholder="Smith"
                         name="lastName"
+                        required
                      />
                   </div>
                </div>
@@ -140,6 +158,7 @@ const WorkWithUs = () => {
                         type="text"
                         placeholder="Your Country"
                         name="country"
+                        required
                      />
                   </div>
                   <div className="w-full md:w-1/2 px-3">
@@ -147,14 +166,15 @@ const WorkWithUs = () => {
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         htmlFor="grid-company"
                      >
-                        Your Resume* (Todo)
+                        Your Resume*
                      </label>
                      <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        className="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-company"
-                        type="text"
-                        placeholder="Your resume goes here"
-                        name="company"
+                        type="file"
+                        accept=".pdf,.docx"
+                        name="resume"
+                        required
                      />
                   </div>
                </div>

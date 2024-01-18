@@ -1,32 +1,41 @@
 import styles from "../../style";
+import Swal from "sweetalert2";
 
 const Contact = () => {
    const handleSubmit = async (e) => {
       e.preventDefault();
-      const data = {
-         sender: e.target.email.value,
-         subject: `New UltraCode Client`,
-         message: `${e.target.email.value} has an offer`,
-         name: e.target.name.value,
-         lastName: e.target.lastName.value,
-         company: e.target.company.value,
-         goals: e.target.goals.value,
-         country: e.target.country.value,
-      };
-      const JSONdata = JSON.stringify(data);
-      const endpoint = "https://ultracode-mailing.onrender.com/api/mails/";
+      const formData = new FormData();
+      formData.append("sender", e.target.email.value);
+      formData.append("subject", `New UltraCode Client`);
+      formData.append("message", `${e.target.email.value} wants to work at UltraCode`);
+      formData.append("name", e.target.name.value);
+      formData.append("lastName", e.target.lastName.value);
+      formData.append("goals", e.target.goals.value);
+      formData.append("country", e.target.country.value);
+      formData.append("company", e.target.company.value);
+
+      const endpoint = "https://ultracode-mailing.vercel.app/api/mail";
       const options = {
          method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSONdata,
+         body: formData,
       };
-      const response = await fetch(endpoint, options);
-      const resData = await response.json();
-
-      if (response.status === 200) {
-         console.log("Message sent.");
+      try {
+         const response = await fetch(endpoint, options);
+         const resData = await response.json();
+         if (response.status === 201) {
+            Swal.fire({
+               icon: "success",
+               title: "Email Sent!",
+               showConfirmButton: false,
+               timer: 5000,
+               customClass: {
+                  popup: "rounded-3xl",
+               },
+               iconColor: "#3A7DE8",
+            });
+         }
+      } catch (error) {
+         console.error("Error sending email:", error);
       }
    };
    return (
@@ -61,6 +70,7 @@ const Contact = () => {
             <form
                onSubmit={handleSubmit}
                className="w-full max-w-lg  z-10 bg-white p-10 rounded-xl"
+               encType="multipart/form-data"
             >
                <div className="flex flex-wrap -mx-3 mb-3">
                   <div className="w-full px-3 mb-3">
@@ -76,6 +86,7 @@ const Contact = () => {
                         type="email"
                         placeholder="UltraCodeHR@gmail.com"
                         name="email"
+                        required
                      />
                   </div>
                </div>
@@ -93,6 +104,7 @@ const Contact = () => {
                         id="grid-goals"
                         placeholder="Describe your goals here..."
                         name="goals"
+                        required
                      ></textarea>
                   </div>
                </div>
@@ -111,6 +123,7 @@ const Contact = () => {
                         type="text"
                         placeholder="John"
                         name="name"
+                        required
                      />
                   </div>
                   <div className="w-full md:w-1/2 px-3">
@@ -126,6 +139,7 @@ const Contact = () => {
                         type="text"
                         placeholder="Smith"
                         name="lastName"
+                        required
                      />
                   </div>
                </div>
@@ -144,6 +158,7 @@ const Contact = () => {
                         type="text"
                         placeholder="Your Country"
                         name="country"
+                        required
                      />
                   </div>
                   <div className="w-full md:w-1/2 px-3">

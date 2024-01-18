@@ -1,8 +1,12 @@
 import styles from "../../style";
-import aboutImage from "../../assets/aboutImg.svg";
-import peopleImage from "../../assets/people01.png";
+import aboutImage from "../../assets/team1.webp";
+import peopleValentín from "../../assets/people05.webp";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 const About = () => {
+   const [email, setEmail] = useState('');
+
    const handleSubmit = async (e) => {
       e.preventDefault();
       const data = {
@@ -10,7 +14,7 @@ const About = () => {
          message: `${e.target.email.value} wants to contact you`,
       };
       const JSONdata = JSON.stringify(data);
-      const endpoint = "https://ultracode-mailing.onrender.com/api/mails/";
+      const endpoint = "https://ultracode-mailing.vercel.app/api/mail";
       const options = {
          method: "POST",
          headers: {
@@ -20,174 +24,172 @@ const About = () => {
       };
       const response = await fetch(endpoint, options);
       const resData = await response.json();
-
-      if (response.status === 200) {
-         console.log("Message sent.");
+      if (response.status === 201) {
+         setEmail('');
+         Swal.fire({
+            icon: "success",
+            title: "Email Sent!",
+            showConfirmButton: false,
+            timer: 5000,
+            customClass: {
+               popup: "rounded-3xl", // Apply border-radius to the modal
+            },
+            iconColor: "#3A7DE8",
+         });
       }
    };
    return (
-      <section
-         id="home"
-         className={` flex-col px-16 py-24 lg:pt-20 xl:pt-16 sm:pt-20 gap-10`}
-      >
-         <div className={`md:flex  ${styles.flexStart}   `}>
-            {/* gradient start */}
-            <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
-            <div className="absolute z-[1] w-[40%] h-[40%] rounded-full white__gradient bottom-40" />
-            <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
-            {/* gradient end */}
-            <section className="w-full md:flex space-y-6 mb-16 gap-20 justify-center items-center text-center">
-               <div className="w-full">
-                  <h1 className={`text-center  ${styles.heading2} mb-3`}>
-                     About Us
-                  </h1>
+      <>
+         <section
+            id="about"
+            className={`flex md:flex-row flex-col  py-24 lg:pt-8 xl:pt-16 sm:pt-20 lg:mt-20 xl:mb-0 mb-0 md:mb-12`}
+         >
+            <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
+               <div className="flex self-center md:self-start"></div>
+
+               <div className="flex flex-col justify-between md:items-start items-center w-ful">
+                  <h1 className={`text-center  ${styles.heading2} mb-3`}>About Us</h1>
                   <p className={`${styles.paragraph} `}>
                      Founded in 2022, UltraCode has been committed to providing nothing but the
                      best services to our customers. Our mission is to empower individuals and
-                     businesses by providing state-of-the-art solutions because we believe in the
-                     power of technology and its ability to simplify and enhance our lives.
+                     businesses by providing state-of-the-art solutions because we believe in
+                     the power of technology and its ability to simplify and enhance our lives.
                   </p>
                </div>
-               <div className="w-full flex justify-center items-center text-center">
-                  <img
-                     src={aboutImage}
-                     alt="img"
-                     className="h-96 w-96 flex justify-center items-center text-center"
-                  />
-               </div>
-            </section>
+            </div>
 
-         </div>
+            <div
+               className={`flex-1 flex-col ${styles.flexCenter} md:my-0 my-10 relative pt-12`}
+            >
+               <img
+                  src={aboutImage}
+                  alt="img"
+                  className="h-96 w-96 flex justify-center items-center text-center rounded-3xl"
+               />
 
-         <div className={` ${styles.flexCenter} md:my-0 my-6 relative  `}>
-            <div className="md:flex gap-20">
+               {/* gradient start */}
+               <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
+               <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
+               <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
+               {/* gradient end */}
+            </div>
+         </section>
+         <section
+            className={`flex md:flex-row flex-col  md:py-24 lg:pt-8 xl:pt-16 sm:pt-20 xl:mb-0 mb-12`}
+         >
+            <div className="md:flex gap-20 xl:px-0 sm:px-16 px-6`">
                <section className="w-full max-w-3xl space-y-6 mb-10 ">
                   <h2 className={`text-center  ${styles.heading2}`}>Our Team</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                     <div className="flex flex-col items-center space-y-2">
+                     <div className="flex flex-col items-center space-y-1">
                         <img
                            alt="Team Member 1"
-                           className="w-24 h-24 rounded-full"
+                           className="w-20 h-20 rounded-full"
                            height="100"
-                           src={peopleImage}
+                           src={peopleValentín}
                            style={{
                               aspectRatio: "100/100",
                               objectFit: "cover",
                            }}
                            width="100"
                         />
-                        <h3 className="text-xl font-semibold text-white">Valentin</h3>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>CEO and Team Leader</p>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>
-                           Valentin is a visionary with 3 years of experience in the tech
-                           industry.
+                        <h3 className="text-xl font-semibold text-white pt-2">Valentin</h3>
+                        <p
+                           className={`${styles.paragraph} flex justify-center items-center text-center pb-4 text-[#3A7DE8] `}
+                        >
+                           Team Leader
+                        </p>
+                        <p
+                           className={`${styles.paragraph} flex justify-center items-center text-center `}
+                        >
+                           Valentin is our visionary Team leader and CEO
                         </p>
                      </div>
-                     <div className="flex flex-col items-center space-y-2">
+                     <div className="flex flex-col items-center space-y-1">
                         <img
                            alt="Team Member 2"
-                           className="w-24 h-24 rounded-full"
+                           className="w-20 h-20 rounded-full"
                            height="100"
-                           src={peopleImage}
+                           src={peopleValentín}
                            style={{
                               aspectRatio: "100/100",
                               objectFit: "cover",
                            }}
                            width="100"
                         />
-                        <h3 className="text-xl font-semibold text-white">Lucas</h3>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>CTO</p>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>
+                        <h3 className="text-xl font-semibold text-white pt-2">Lucas</h3>
+                        <p
+                           className={`${styles.paragraph} flex justify-center items-center text-center pb-4 text-[#3A7DE8] `}
+                        >
+                           CTO
+                        </p>
+                        <p
+                           className={`${styles.paragraph} flex justify-center items-center text-center `}
+                        >
                            Lucas is a tech enthusiast with a passion for problem-solving.
                         </p>
                      </div>
-                     <div className="flex flex-col items-center space-y-2">
+                     <div className="flex flex-col items-center space-y-1">
                         <img
                            alt="Team Member 3"
-                           className="w-24 h-24 rounded-full"
+                           className="w-20 h-20 rounded-full"
                            height="100"
-                           src={peopleImage}
+                           src={peopleValentín}
                            style={{
                               aspectRatio: "100/100",
                               objectFit: "cover",
                            }}
                            width="100"
                         />
-                        <h3 className="text-xl font-semibold text-white">Demateo</h3>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>CFO</p>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>
-                           Demateo has a keen eye for detail and is a wizard with numbers.
+                        <h3 className="text-xl font-semibold text-white pt-2">Demateo</h3>
+                        <p
+                           className={`${styles.paragraph} flex justify-center items-center text-center pb-4 text-[#3A7DE8] `}
+                        >
+                           CFO
                         </p>
-                     </div>
-                     <div className="flex flex-col items-center space-y-2">
-                        <img
-                           alt="Team Member 3"
-                           className="w-24 h-24 rounded-full"
-                           height="100"
-                           src={peopleImage}
-                           style={{
-                              aspectRatio: "100/100",
-                              objectFit: "cover",
-                           }}
-                           width="100"
-                        />
-                        <h3 className="text-xl font-semibold text-white">Demateo</h3>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>CFO</p>
-                        <p className={`${styles.paragraph} flex justify-center items-center text-center `}>
+                        <p
+                           className={`${styles.paragraph} flex justify-center items-center text-center `}
+                        >
                            Demateo has a keen eye for detail and is a wizard with numbers.
                         </p>
                      </div>
                   </div>
                </section>
-               <section className="w-full max-w-3xl   z-10 ">
-                  <p className={`${styles.paragraph} flex justify-center items-center text-center mb-3`}>
-                     Interested in collaborating with us? We'd love to hear from you. Please reach
-                     out to us via the contact form or email us directly.
+               <section className="w-full max-w-3xl z-10 ">
+                  <h2 className={`px-4 ${styles.heading2} mb-3 text-center`}>Get in touch</h2>
+                  <p className={`${styles.paragraph} p-4 mb-3 w-full`}>
+                     Interested in collaborating with us? We'd love to hear from you. Please
+                     reach out to us via the contact form below or email us directly at
+                     <span className="text-[#3A7DE8] pl-2">UltraCodeHR@gmail.com</span>.
                   </p>
-                  <p className={`${styles.paragraph} md:flex justify-center items-center text-center mb-3`}>
-                     Or contact us at <br />
-                     <a
-                        href={`mailto:UltraCodeHR@gmail.com`}
-                        target="_blank"
-                        className="text-[#3A7DE8] pl-2"
-                     >
-                        UltraCodeHR@gmail.com
-                     </a>
-                  </p>
-                  <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                     <h2 className={`text-center  ${styles.heading2} mb-3`}>
-                        Get in touch
-                     </h2>
-                     <p className={`${styles.paragraph} flex justify-center items-center text-center mb-3`}>
-                        We'd love to hear from you. Send us a message and we'll get back to you as
-                        soon as possible.
-                     </p>
-                     <div className="w-full  flex justify-center items-center ">
+
+                  <div className="flex flex-col gap-2">
+                     <div className="w-full px-4 py-2">
                         <form onSubmit={handleSubmit} className="flex space-x-2 mb-5">
                            <input
                               name="email"
-                              className=" rounded-lg p-2 flex justify-center items-center "
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              className=" rounded-lg p-2 flex justify-center items-center w-2/4 "
                               placeholder="Enter your email"
                               type="email"
                            />
+
                            <button
-                              className="bg-white p-1 rounded-lg cursor-pointer hover:bg-[#080A17] hover:text-white duration-300 ease-in-out"
+                              className="font-poppins font-medium text-[18px] mr-4 px-1 py-1 w-full md:w-fit rounded-full bg-blue-gradient  text-white"
                               type="submit"
                            >
-                              Send
+                              <span className="transition ease-in-out delay-45 w-full block bg-[#121212] hover:bg-stone-700 rounded-full px-3 py-1 2xl:text-2xl 2xl:px-8 2xl:py-4">
+                                 Send
+                              </span>
                            </button>
                         </form>
-
                      </div>
                   </div>
                </section>
-
-
             </div>
-
-
-         </div>
-      </section>
+         </section>
+      </>
    );
 };
 export default About;

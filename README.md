@@ -1,1 +1,1 @@
-Ultra Code Website 2024
+![MusiQ Logo](./UltraCodeLogo.png)
